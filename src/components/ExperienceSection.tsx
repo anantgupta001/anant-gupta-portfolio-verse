@@ -4,14 +4,9 @@ import {
   Shield, 
   Hospital, 
   Code, 
-  Briefcase,
-  Users,
-  TrendingUp,
-  Heart,
-  Server,
   Monitor,
   Calendar,
-  GraduationCap
+  Briefcase
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -68,23 +63,6 @@ export const ExperienceSection = () => {
     }
   ];
 
-  const education = [
-    {
-      degree: 'B.Tech in Computer Science Engineering',
-      institution: 'VIT-AP',
-      period: '2022 – Present',
-      cgpa: '8.46',
-      status: 'Current'
-    },
-    {
-      degree: 'Higher Secondary Certificate (HSC), PCM',
-      institution: 'JVP International School, Jaipur',
-      period: '2022',
-      cgpa: '83.2%',
-      status: 'Completed'
-    }
-  ];
-
   return (
     <section id="experience" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
@@ -97,32 +75,43 @@ export const ExperienceSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Experience Timeline */}
-          <div className="lg:col-span-2 space-y-8">
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary/50 via-primary to-primary/50"></div>
+          
+          <div className="space-y-12">
             {experiences.map((exp, index) => {
               const { elementRef, isVisible } = useScrollAnimation();
+              const isLeft = index % 2 === 0;
               
               return (
                 <div
                   key={index}
                   ref={elementRef}
-                  className={`transition-all duration-700 ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-8'
+                  className={`relative flex items-center ${
+                    isLeft ? 'flex-row' : 'flex-row-reverse'
                   }`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
                 >
-                  <Card className="glass border-border/50 hover:glow transition-all duration-300 p-6 relative">
-                    {/* Timeline dot */}
-                    <div className="absolute -left-4 top-8 w-8 h-8 bg-primary rounded-full border-4 border-background flex items-center justify-center">
-                      <exp.icon className="h-4 w-4 text-primary-foreground" />
-                    </div>
-                    
-                    <div className="ml-8">
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary rounded-full border-4 border-background flex items-center justify-center z-10 shadow-glow">
+                    <exp.icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  
+                  {/* Content Card */}
+                  <div 
+                    className={`w-5/12 ${
+                      isLeft ? 'pr-8' : 'pl-8'
+                    } transition-all duration-700 ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ transitionDelay: `${index * 200}ms` }}
+                  >
+                    <Card className="glass border-border/50 hover:glow transition-all duration-300 p-6">
                       <div className="flex items-start justify-between mb-4">
-                        <div>
+                        <div className="flex-1">
                           <h3 className="text-xl font-bold text-primary mb-1">{exp.title}</h3>
                           <p className="text-lg font-semibold">{exp.company}</p>
                           <div className="flex items-center gap-2 text-muted-foreground mt-1">
@@ -150,103 +139,51 @@ export const ExperienceSection = () => {
                           </div>
                         ))}
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </div>
+                  
+                  {/* Empty space for the other side */}
+                  <div className="w-5/12"></div>
                 </div>
               );
             })}
           </div>
+        </div>
 
-          {/* Education Sidebar */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <GraduationCap className="h-6 w-6 text-primary" />
-                Education
-              </h3>
+        {/* Key Expertise Summary */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold mb-8 flex items-center justify-center gap-2">
+            <Briefcase className="h-6 w-6 text-primary" />
+            Key Expertise
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            {[
+              'Cybersecurity Analysis',
+              'Full-Stack Development',
+              'Team Leadership',
+              'IoT Solutions',
+              'UI/UX Design',
+              'Open Source Contribution'
+            ].map((skill, index) => {
+              const { elementRef, isVisible } = useScrollAnimation();
               
-              <div className="space-y-4">
-                {education.map((edu, index) => {
-                  const { elementRef, isVisible } = useScrollAnimation();
-                  
-                  return (
-                    <div
-                      key={index}
-                      ref={elementRef}
-                      className={`transition-all duration-700 ${
-                        isVisible 
-                          ? 'opacity-100 translate-x-0' 
-                          : 'opacity-0 translate-x-8'
-                      }`}
-                      style={{ transitionDelay: `${(experiences.length + index) * 200}ms` }}
-                    >
-                      <Card className="glass border-border/50 hover:glow transition-all duration-300 p-6">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex-1">
-                            <h4 className="text-lg font-bold text-primary">{edu.degree}</h4>
-                            <p className="font-semibold">{edu.institution}</p>
-                            <div className="flex items-center gap-2 text-muted-foreground text-sm mt-1">
-                              <Calendar className="h-3 w-3" />
-                              <span>{edu.period}</span>
-                            </div>
-                          </div>
-                          <Badge 
-                            variant={edu.status === 'Current' ? 'default' : 'secondary'}
-                            className={edu.status === 'Current' ? 'bg-primary text-primary-foreground' : ''}
-                          >
-                            {edu.status}
-                          </Badge>
-                        </div>
-                        
-                        <div className="flex items-center justify-between">
-                          <span className="text-muted-foreground">
-                            {edu.degree.includes('CGPA') ? 'CGPA' : 'Percentage'}
-                          </span>
-                          <span className="text-xl font-bold text-primary">{edu.cgpa}</span>
-                        </div>
-                      </Card>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Skills Summary */}
-            <div>
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <Briefcase className="h-5 w-5 text-primary" />
-                Key Expertise
-              </h3>
-              <div className="space-y-2">
-                {[
-                  'Cybersecurity Analysis',
-                  'Full-Stack Development',
-                  'Team Leadership',
-                  'IoT Solutions',
-                  'UI/UX Design',
-                  'Open Source Contribution'
-                ].map((skill, index) => {
-                  const { elementRef, isVisible } = useScrollAnimation();
-                  
-                  return (
-                    <div
-                      key={skill}
-                      ref={elementRef}
-                      className={`transition-all duration-500 ${
-                        isVisible 
-                          ? 'opacity-100 translate-x-0' 
-                          : 'opacity-0 translate-x-4'
-                      }`}
-                      style={{ transitionDelay: `${(experiences.length + education.length + index) * 100}ms` }}
-                    >
-                      <div className="px-3 py-2 text-sm bg-primary/10 text-primary rounded-lg border border-primary/20">
-                        {skill}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+              return (
+                <div
+                  key={skill}
+                  ref={elementRef}
+                  className={`transition-all duration-500 ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
+                  style={{ transitionDelay: `${(experiences.length + index) * 100}ms` }}
+                >
+                  <div className="px-4 py-2 text-sm bg-primary/10 text-primary rounded-lg border border-primary/20">
+                    {skill}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
