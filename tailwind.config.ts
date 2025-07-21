@@ -17,6 +17,9 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			sans: ['Inter', 'sans-serif'],
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -52,6 +55,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Portfolio specific colors
+				navy: {
+					DEFAULT: 'hsl(var(--navy))',
+					light: 'hsl(var(--navy-light))'
+				},
+				cyan: {
+					DEFAULT: 'hsl(var(--cyan))',
+					light: 'hsl(var(--cyan-light))'
+				},
+				glass: 'var(--glass)',
+				glow: 'var(--glow)',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -88,7 +102,12 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'slideInUp': 'slideInUp 0.6s ease-out',
+				'fadeIn': 'fadeIn 0.8s ease-out',
+				'typewriter': 'typewriter 4s steps(40) 1s infinite normal both',
+				'blink': 'blink 1s steps(2) infinite'
 			}
 		}
 	},
