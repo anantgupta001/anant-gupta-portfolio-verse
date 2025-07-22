@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin } from 'lucide-react';
+import { Download, Github, Linkedin, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Header = () => {
@@ -9,13 +9,40 @@ export const Header = () => {
     link.click();
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navItems = [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30 backdrop-blur-md bg-background/80">
-      <div className="container mx-auto px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/90 border-b border-border/20">
+      <div className="container mx-auto px-6 lg:px-12 py-4">
         <div className="flex items-center justify-between">
-          {/* Name/Logo */}
-          <div className="text-2xl font-bold gradient-text">
-            Anant Gupta
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Mobile menu placeholder */}
+          <div className="md:hidden">
+            <span className="text-xl font-bold text-primary">AG</span>
           </div>
 
           {/* Action Buttons */}
@@ -24,15 +51,14 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               asChild
-              className="hover:glow transition-all duration-300"
+              className="w-8 h-8 hover:text-primary transition-colors duration-300"
             >
               <a 
                 href="https://github.com/anantgupta001" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
               </a>
             </Button>
             
@@ -40,25 +66,34 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               asChild
-              className="hover:glow transition-all duration-300"
+              className="w-8 h-8 hover:text-primary transition-colors duration-300"
             >
               <a 
                 href="#" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
               </a>
             </Button>
-            
+
             <Button
-              onClick={handleDownloadResume}
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground glow"
+              variant="ghost"
+              size="icon"
+              asChild
+              className="w-8 h-8 hover:text-primary transition-colors duration-300"
             >
-              <Download className="h-4 w-4 mr-2" />
-              Resume
+              <a href="mailto:anantagarwal4946@gmail.com">
+                <Download className="h-4 w-4" />
+              </a>
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="w-8 h-8 hover:text-primary transition-colors duration-300"
+            >
+              <Sun className="h-4 w-4" />
             </Button>
           </div>
         </div>

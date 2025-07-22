@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Header } from '@/components/Header';
+import { LandingHero } from '@/components/LandingHero';
 import { AboutSection } from '@/components/AboutSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
@@ -17,13 +18,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
-        <AboutSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <EducationSection />
-        <SkillsSection />
-        <ContactSection />
+      <main>
+        <div id="home">
+          <LandingHero />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
+        <div id="projects">
+          <ProjectsSection />
+        </div>
+        <div id="experience">
+          <ExperienceSection />
+        </div>
+        <div id="education">
+          <EducationSection />
+        </div>
+        <div id="skills">
+          <SkillsSection />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
