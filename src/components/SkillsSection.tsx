@@ -1,50 +1,37 @@
 import { Card } from '@/components/ui/card';
 import { 
-  Code, 
-  Database, 
-  Cloud, 
+  Code2, 
+  Settings, 
   Wrench,
-  BookOpen,
-  Palette 
+  BookOpen
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const SkillsSection = () => {
   const skillCategories = [
     {
-      title: 'Frontend',
-      icon: Palette,
-      skills: ['JavaScript', 'React', 'Redux', 'HTML', 'CSS', 'Bootstrap', 'Tailwind'],
+      title: '🖥️ Programming Languages',
+      icon: Code2,
+      skills: ['Python', 'JavaScript', 'C/C++', 'HTML/CSS', 'SQL/Postgres', 'R'],
       color: 'from-blue-500/20 to-cyan-500/20'
     },
     {
-      title: 'Backend',
-      icon: Code,
-      skills: ['Node.js', 'Express.js'],
+      title: '⚙️ Frameworks & Tools',
+      icon: Settings,
+      skills: ['React', 'Node.js', 'Next.js', 'Flask', 'OSINT'],
       color: 'from-green-500/20 to-emerald-500/20'
     },
     {
-      title: 'Database',
-      icon: Database,
-      skills: ['MySQL', 'MongoDB', 'NoSQL'],
+      title: '🧰 Developer Tools & Libraries',
+      icon: Wrench,
+      skills: ['Git', 'VS Code', 'Kali Linux', 'Burp Suite', 'Metasploit', 'Wireshark', 'Cisco Packet Tracer'],
       color: 'from-purple-500/20 to-pink-500/20'
     },
     {
-      title: 'Cloud & DevOps',
-      icon: Cloud,
-      skills: ['AWS', 'Cloudinary'],
-      color: 'from-orange-500/20 to-red-500/20'
-    },
-    {
-      title: 'Tools',
-      icon: Wrench,
-      skills: ['Git', 'GitHub', 'Postman', 'Hoppscotch', 'VS Code', 'IntelliJ', 'PyCharm', 'Jupyter'],
-      color: 'from-indigo-500/20 to-blue-500/20'
-    },
-    {
-      title: 'Languages & Coursework',
+      title: '📚 Libraries & Automation',
       icon: BookOpen,
-      skills: ['C', 'C++', 'Java', 'Python', 'DSA', 'DBMS', 'CN', 'OOPS', 'OS', 'ML', 'DL', 'TOC', 'Software Engineering'],
-      color: 'from-teal-500/20 to-cyan-500/20'
+      skills: ['pandas', 'NumPy', 'Matplotlib', 'Selenium', 'Beautiful Soup'],
+      color: 'from-orange-500/20 to-yellow-500/20'
     }
   ];
 
@@ -53,39 +40,46 @@ export const SkillsSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Skills & Technologies</span>
+            <span className="gradient-text">Technical Skills</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications
+            A comprehensive toolkit for cybersecurity, development, and automation
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => (
-            <Card 
-              key={category.title}
-              className="glass border-border/50 hover:glow transition-all duration-300 group p-6 animate-slideInUp"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="h-6 w-6 text-primary" />
+        <div className="grid md:grid-cols-2 gap-8">
+          {skillCategories.map((category, index) => {
+            const { elementRef, isVisible } = useScrollAnimation();
+            
+            return (
+              <Card 
+                key={category.title}
+                ref={elementRef}
+                className={`glass border-border/50 hover:glow transition-all duration-500 group p-8 ${
+                  isVisible ? 'animate-slideInUp opacity-100' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <category.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold">{category.title}</h3>
                 </div>
-                <h3 className="text-xl font-bold">{category.title}</h3>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors duration-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
+                
+                <div className="grid grid-cols-2 gap-3">
+                  {category.skills.map((skill) => (
+                    <div
+                      key={skill}
+                      className="px-4 py-2 text-sm bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-all duration-200 hover:scale-105 text-center font-medium"
+                    >
+                      {skill}
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
