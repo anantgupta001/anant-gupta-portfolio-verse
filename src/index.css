@@ -35,9 +35,9 @@
 }
 
 .section-heading:hover {
-  color: var(--accent);
-  text-shadow: 0 0 2px var(--accent);
-  filter: drop-shadow(0 0 1px var(--accent));
+  color: var(--accent-secondary);
+  text-shadow: 0 0 2px var(--accent-secondary);
+  filter: drop-shadow(0 0 1px var(--accent-secondary));
 }
 
 .section-subheading {
