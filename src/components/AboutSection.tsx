@@ -14,8 +14,8 @@ export const AboutSection = () => (
           <Globe className="h-7 w-7 text-blue-600 dark:text-blue-400" />
         </div>
         <h3 className="text-lg font-bold mb-2 text-[color:var(--accent)]">Open Source Contribution</h3>
-        <p className="text-gray-700 dark:text-gray-200 font-sans mb-2">Contributed to FFCS on the Go, impacting over 120,000 VIT students each semester by streamlining the hectic course registration process.</p>
-        <p className="text-gray-700 dark:text-gray-200 font-sans">Reduced selection time by 40% and improved overall user satisfaction by 70%.</p>
+        <p className="text-gray-700 dark:text-gray-200 font-sans mb-2">Contributed to FFCS on the Go, an open-source platform used by over 120,000 VIT students each semester to simplify and accelerate the traditionally hectic course registration process.</p>
+        <p className="text-gray-700 dark:text-gray-200 font-sans">Achieved a 40% reduction in average course selection time and a 70% increase in user satisfaction, based on survey feedback, by implementing a guided selection flow and significantly improving performance over the official VTOP system.</p>
       </div>
       <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-lg p-6 flex flex-col items-start min-h-[260px] z-10 border border-border-light dark:border-border-dark transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
         <div className="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900 mb-4">

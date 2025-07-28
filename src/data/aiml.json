@@ -1,0 +1,14 @@
+[
+  {
+    "title": "FFCS on the Go Enhancement",
+    "organization": "Open Source Contribution",
+    "date": "2023 - Present",
+    "description": "Contributed to FFCS on the Go, an open-source platform used by over 120,000 VIT students each semester to simplify and accelerate the traditionally hectic course registration process.\n\nAchieved a 40% reduction in average course selection time and a 70% increase in user satisfaction, based on survey feedback, by implementing a guided selection flow and significantly improving performance over the official VTOP system."
+  },
+  {
+    "title": "Age Detection Model",
+    "organization": "CNN-based Ensemble System",
+    "date": "2023",
+    "description": "Developed an Age Detection Model, a CNN-based ensemble system designed to predict age from facial images with high accuracy.\n\nAchieved 80% prediction accuracy by training on the UTKFace and Facial Age datasets for 60 epochs, using softmax activation for multi-class classification and optimized model architecture for performance and generalization."
+  }
+]

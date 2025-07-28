@@ -1,10 +1,10 @@
-import educationData from '../data/education.json';
+import aimlData from '../data/aiml.json';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import React, { useRef, useEffect, useState } from 'react';
 import { GraduationCap, Award } from 'lucide-react';
 
 export const EducationSection = () => {
-  const education = educationData;
+  const education = aimlData;
   const firstLogoRef = useRef<HTMLDivElement>(null);
   const lastLogoRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,9 +40,9 @@ export const EducationSection = () => {
         className="hidden md:block absolute left-1/2 -translate-x-1/2 bg-gray-700 w-1 z-0 rounded-full"
         style={{ top: lineStyle.top, height: lineStyle.height }}
       />
-      <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Education</h2>
+      <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">AI/ML</h2>
       <p className="section-subheading text-lg text-gray-500 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-        A comprehensive overview of academic background and learning experiences.
+        Exploring artificial intelligence and machine learning through hands-on projects and cutting-edge research implementations.
       </p>
       <div className="relative max-w-6xl mx-auto flex flex-col gap-24 z-10">
         {education.map((edu, idx) => {
