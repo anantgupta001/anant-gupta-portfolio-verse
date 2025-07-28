@@ -16,7 +16,7 @@ export const LandingHero = () => {
           <a href="https://github.com/anantgupta001" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition text-3xl">
             <Github className="h-8 w-8" />
           </a>
-          <a href="https://www.linkedin.com/in/anantgupta001/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition text-3xl">
+          <a href="https://www.linkedin.com/in/anantgupta7628/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition text-3xl">
             <Linkedin className="h-8 w-8" />
           </a>
           <a href="mailto:anantagarwal4946@gmail.com" className="text-gray-500 hover:text-blue-600 transition text-3xl">
