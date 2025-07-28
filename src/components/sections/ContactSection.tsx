@@ -43,7 +43,7 @@ export const ContactSection = () => {
           <div className="group">
             <a
               href="mailto:anantagarwal4946@gmail.com"
-              className="px-8 py-3 rounded-full bg-[#34699A]/60 text-white text-2xl font-normal shadow-lg hover:bg-[#34699A]/80 transition text-lg mt-2 backdrop-blur-md border border-white/30 glass group-hover:animate-flip"
+              className="px-8 py-3 rounded-full bg-[#34699A]/60 text-white text-2xl font-normal shadow-lg hover:bg-[#34699A]/80 transition text-lg backdrop-blur-md border border-white/30 glass group-hover:animate-flip flex items-center gap-2"
               style={{ display: 'inline-block', perspective: '600px' }}
             >
               Say Hello!

@@ -1,9 +1,33 @@
 import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 export const LandingHero = () => {
+  const { toast } = useToast();
+
   const scrollToAbout = () => {
     const about = document.getElementById('about-section');
     if (about) about.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDownloadResume = () => {
+    // Use the local resume file from public directory
+    const resumePath = '/Anant Resume.pdf';
+    
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = resumePath;
+    link.download = 'Anant_Gupta_Resume.pdf';
+    link.target = '_blank';
+    
+    // Add to DOM, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    toast({
+      title: "Downloading Resume...",
+      description: "Your resume should start downloading shortly.",
+    });
   };
 
   return (
@@ -23,15 +47,14 @@ export const LandingHero = () => {
             <Mail className="h-8 w-8" />
           </a>
         </div>
-        <a
-          href="/resume-anant-gupta.pdf"
+        <button
+          onClick={handleDownloadResume}
           className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#34699A]/60 text-white font-semibold shadow-lg hover:bg-[#34699A]/80 transition text-lg mt-2 backdrop-blur-md border border-white/30 glass"
           style={{ WebkitBackdropFilter: 'blur(8px)' }}
-          download
         >
           <Download className="h-5 w-5" />
           Download Resume
-        </a>
+        </button>
       </div>
       {/* Centered, very bottom, circular, responsive bouncing chevron-down button. Make sure AboutSection has id='about-section' */}
       <button
