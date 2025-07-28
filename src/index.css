@@ -51,15 +51,6 @@
   max-width: 48rem;
   margin: 0 auto 2rem auto;
   letter-spacing: 0.025em;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.section-subheading:hover {
-  color: var(--accent);
-  text-shadow: 0 0 2px var(--accent);
-  filter: drop-shadow(0 0 1px var(--accent));
-  opacity: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
