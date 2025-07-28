@@ -10,8 +10,8 @@
     "technologies": ["Flutter", "Express", "Node.js", "MongoDB", "TensorFlow.js"],
     "icon": "Users",
     "color": "from-orange-500/20 to-red-500/20",
-    "github": "https://github.com/anantgupta001",
-    "demo": "https://github.com/anantgupta001"
+    "github": "https://github.com/anantgupta001/FoodApe",
+    "demo": null
   },
   {
     "title": "StayHub",
@@ -23,7 +23,7 @@
     "technologies": ["React", "Node.js", "Express", "MongoDB", "Mapbox API"],
     "icon": "TrendingUp",
     "color": "from-blue-500/20 to-cyan-500/20",
-    "github": "https://github.com/anantgupta001",
+    "github": "https://github.com/anantgupta001/StayHub",
     "demo": null
   },
   {
@@ -49,7 +49,7 @@
     "technologies": ["React", "D3.js", "Python", "AI/ML", "Data Visualization"],
     "icon": "Zap",
     "color": "from-green-500/20 to-emerald-500/20",
-    "github": "https://github.com/anantgupta001",
+    "github": "https://github.com/anantgupta001/MAYHEM.github.io",
     "demo": null
   },
   {
@@ -62,7 +62,8 @@
     "technologies": ["HTML", "SCSS", "JavaScript", "Shell"],
     "icon": "Zap",
     "color": "from-green-500/20 to-emerald-500/20",
-    "github": "https://github.com/anantgupta001",
-    "demo": null
+    "github": "https://github.com/anantgupta001/FFCSonTheGo",
+    "demo": "https://ffcsonthego.vatz88.in/#AP"
+
   }
 ] 
