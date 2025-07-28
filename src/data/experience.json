@@ -1,16 +1,24 @@
 [
   {
-    "title": "Frontend Developer",
-    "organization": "Acme Corp",
-    "date": "2022 - Present",
-    "description": "Building beautiful, performant UIs with React and Tailwind CSS.",
-    "icon": "Code"
+    "title": "Backend Developer",
+    "organization": "Milestone Club",
+    "date": "2024",
+    "description": [
+      "Led a team of 5 to build FoodApe, a food ordering app serving 30,000+ VIT-AP students.",
+      "Designed a monolithic backend, improving scalability by 30% and reducing latency by 25%.",
+      "Integrated ML-based food recommendations to enhance user experience."
+    ],
+    "icon": "Briefcase"
   },
   {
-    "title": "Intern",
-    "organization": "Startup Inc.",
-    "date": "Summer 2021",
-    "description": "Worked on backend APIs and learned agile teamwork.",
-    "icon": "Briefcase"
+    "title": "Contributor",
+    "organization": "FFCS on The Go",
+    "date": "2022",
+    "description": [
+      "Streamlined course registration for 120,000+ VIT students each semester.",
+      "Reduced average course selection time by 40% through a guided flow and faster UI.",
+      "Improved user satisfaction by 70%, based on survey feedback."
+    ],
+    "icon": "Code"
   }
 ] 

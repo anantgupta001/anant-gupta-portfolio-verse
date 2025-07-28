@@ -1,12 +1,12 @@
-import { Header } from '@/components/Header';
-import { LandingHero } from '@/components/LandingHero';
-import { AboutSection } from '@/components/AboutSection';
-import { ExperienceSection } from '@/components/ExperienceSection';
-import { ProjectsSection } from '@/components/ProjectsSection';
-import { SkillsSection } from '@/components/SkillsSection';
-import { EducationSection } from '@/components/EducationSection';
-import { ContactSection } from '@/components/ContactSection';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/components/layout/Header';
+import { LandingHero } from '@/components/sections/LandingHero';
+import { AboutSection } from '@/components/sections/AboutSection';
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
+import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { SkillsSection } from '@/components/sections/SkillsSection';
+import { EducationSection } from '@/components/sections/EducationSection';
+import { ContactSection } from '@/components/sections/ContactSection';
+import { Footer } from '@/components/layout/Footer';
 import { ChevronUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

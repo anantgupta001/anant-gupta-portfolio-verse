@@ -1,23 +1,23 @@
 [
   {
-    "title": "B.Sc. Computer Science",
-    "organization": "State University",
-    "date": "2018 - 2022",
-    "description": "Graduated with honors, focusing on software engineering and AI.",
+    "title": "B.Tech in Computer Science and Engineering",
+    "organization": "Vellore Institute of Technology, AP",
+    "date": "2022 – 2026",
+    "description": "Currently pursuing a degree in Computer Science and Engineering with focus on software development, system design, and emerging technologies.",
     "logo": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=128&h=128&q=80"
   },
   {
-    "title": "High School Diploma",
-    "organization": "Central High School",
-    "date": "2016 - 2018",
-    "description": "Excelled in mathematics and science, member of the coding club.",
+    "title": "Higher Secondary Certificate (HSC)",
+    "organization": "JVP International School",
+    "date": "2021 – 2022",
+    "description": "Scored 82.3% in CBSE board exams; studied Mathematics, Physics, Chemistry, English, and Physical Education. Achieved 84 percentile in JEE Mains.",
     "logo": "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=facearea&w=128&h=128&q=80"
   },
   {
-    "title": "B.Sc. Computer Science",
-    "organization": "State University",
-    "date": "2018 - 2022",
-    "description": "Graduated with honors, focusing on software engineering and AI.",
+    "title": "Secondary School Certificate (SSC)",
+    "organization": "JVP International School",
+    "date": "2019 – 2020",
+    "description": "Scored 82.4% in CBSE board exams.",
     "logo": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=128&h=128&q=80"
   }
-] 
+]

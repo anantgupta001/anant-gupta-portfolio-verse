@@ -1,7 +1,12 @@
 [
   {
     "title": "FoodApe",
-    "description": "Led a 5-member team to build a food-ordering app for 30,000 students. Built scalable architecture, boosting performance by 30%. Developed APIs with 20% faster response and 40% higher cache hits.",
+    "description": [
+      "Led a 5-member team to build a food-ordering app for 30,000+ VIT-AP students.",
+      "Built scalable architecture, boosting performance by 30% and reducing latency by 25%.",
+      "Developed APIs with 20% faster response and 40% higher cache hits.",
+      "Integrated ML-based recommendations to enhance user experience."
+    ],
     "technologies": ["Flutter", "Express", "Node.js", "MongoDB", "TensorFlow.js"],
     "icon": "Users",
     "color": "from-orange-500/20 to-red-500/20",
@@ -10,7 +15,11 @@
   },
   {
     "title": "StayHub",
-    "description": "Full Stack Web App with secure authentication using cookies and salting. Integrated Mapbox API for dynamic location services. Optimized API response times and cache performance.",
+    "description": [
+      "Implemented secure authentication using cookies and salting for reliable user access control.",
+      "Integrated Mapbox API for accurate location services, improving user experience and convenience.",
+      "Built RESTful APIs for accounts, orders, and payments, reducing response times by 10% and boosting cache hit rate by 25%."
+    ],
     "technologies": ["React", "Node.js", "Express", "MongoDB", "Mapbox API"],
     "icon": "TrendingUp",
     "color": "from-blue-500/20 to-cyan-500/20",
@@ -19,7 +28,11 @@
   },
   {
     "title": "Age Detection Using CNN",
-    "description": "Built ensemble CNN model with 80% accuracy. Trained on UTK and Facial Age datasets. Used softmax for precise age classification.",
+    "description": [
+      "Built an age detection CNN ensemble model with 80% prediction accuracy.",
+      "Trained the model on UTKFace and Facial Age datasets over 60 epochs.",
+      "Used softmax activation for multi-class age classification."
+    ],
     "technologies": ["Python", "TensorFlow", "CNN", "Computer Vision"],
     "icon": "Brain",
     "color": "from-purple-500/20 to-pink-500/20",
@@ -28,8 +41,25 @@
   },
   {
     "title": "MAYHEM",
-    "description": "Mental health journaling with AI pattern analysis. Beautiful data visualizations via graphs. Trend dashboard to track emotional health.",
+    "description": [
+      "Developed a user interface for inputting and managing daily journal entries.",
+      "Integrated AI to analyze content, detect emotional patterns, and provide mental health insights.",
+      "Designed an interactive dashboard with visualizations to track emotional well-being over time."
+    ],
     "technologies": ["React", "D3.js", "Python", "AI/ML", "Data Visualization"],
+    "icon": "Zap",
+    "color": "from-green-500/20 to-emerald-500/20",
+    "github": "https://github.com/anantgupta001",
+    "demo": null
+  },
+  {
+    "title": "FFCS on The Go",
+    "description": [
+      "Streamlined course registration for 120,000+ VIT students each semester.",
+      "Reduced average course selection time by 40% through a guided flow and faster UI.",
+      "Improved user satisfaction by 70%, based on survey feedback."
+    ],
+    "technologies": ["HTML", "SCSS", "JavaScript", "Shell"],
     "icon": "Zap",
     "color": "from-green-500/20 to-emerald-500/20",
     "github": "https://github.com/anantgupta001",
