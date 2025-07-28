@@ -1,86 +1,43 @@
-import { Card } from '@/components/ui/card';
-import { 
-  Code2, 
-  Settings, 
-  Wrench,
-  BookOpen
-} from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Code2, Settings, Wrench, BookOpen } from 'lucide-react';
+import skillsData from '../data/skills.json';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+const iconMap = { Code2, Settings, Wrench, BookOpen };
 
 export const SkillsSection = () => {
-  const skillCategories = [
-    {
-      title: '🖥️ Programming Languages',
-      icon: Code2,
-      skills: ['Python', 'JavaScript', 'C/C++', 'HTML/CSS', 'SQL/Postgres', 'R'],
-      color: 'from-blue-500/20 to-cyan-500/20'
-    },
-    {
-      title: '⚙️ Frameworks & Tools',
-      icon: Settings,
-      skills: ['React', 'Node.js', 'Next.js', 'Flask', 'OSINT'],
-      color: 'from-green-500/20 to-emerald-500/20'
-    },
-    {
-      title: '🧰 Developer Tools & Libraries',
-      icon: Wrench,
-      skills: ['Git', 'VS Code', 'Kali Linux', 'Burp Suite', 'Metasploit', 'Wireshark', 'Cisco Packet Tracer'],
-      color: 'from-purple-500/20 to-pink-500/20'
-    },
-    {
-      title: '📚 Libraries & Automation',
-      icon: BookOpen,
-      skills: ['pandas', 'NumPy', 'Matplotlib', 'Selenium', 'Beautiful Soup'],
-      color: 'from-orange-500/20 to-yellow-500/20'
-    }
-  ];
-
+  // Map icon string from JSON to actual icon component
+  const skillCategories = Array.isArray(skillsData)
+    ? skillsData.map(cat => ({ ...cat, icon: iconMap[cat.icon] || Code2 }))
+    : [];
   return (
-    <section id="skills" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Technical Skills</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit for cybersecurity, development, and automation
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => {
-            const { elementRef, isVisible } = useScrollAnimation();
-            
-            return (
-              <Card 
-                key={category.title}
-                ref={elementRef}
-                className={`glass border-border/50 hover:glow transition-all duration-500 group p-8 ${
-                  isVisible ? 'animate-slideInUp opacity-100' : 'opacity-0'
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform duration-300`}>
-                    <category.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold">{category.title}</h3>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-3">
-                  {category.skills.map((skill) => (
-                    <div
-                      key={skill}
-                      className="px-4 py-2 text-sm bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-all duration-200 hover:scale-105 text-center font-medium"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+    <section
+      className="py-16 px-4 md:px-12 flex flex-col items-center bg-background-light dark:bg-background-dark"
+    >
+      <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Technical Skills</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+        {skillCategories.map((cat, idx) => {
+          const { elementRef, isVisible } = useScrollAnimation(0.2);
+          return (
+            <div
+              key={idx}
+              ref={elementRef}
+              className={`rounded-2xl shadow-lg bg-white dark:bg-[#273449] p-6 flex flex-col gap-3 transition-all duration-700 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'}`}
+              style={{ willChange: 'transform, opacity', transitionDelay: isVisible ? `${idx * 120}ms` : '0ms' }}
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <cat.icon className="h-6 w-6 text-[color:var(--accent)]" />
+                <h3 className="text-xl font-bold text-[color:var(--accent)]">{cat.title}</h3>
+              </div>
+              <ul className="flex flex-col gap-4 mt-2">
+                {cat.skills.map((skill) => (
+                  <li key={skill} className="bg-card-light dark:bg-card-dark rounded-2xl shadow-lg px-5 py-3 text-base text-left font-medium text-text-light dark:text-text-dark border border-border-light dark:border-border-dark">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Programming Languages",
+    "icon": "Code2",
+    "skills": ["Python", "JavaScript", "C/C++", "HTML/CSS", "SQL/Postgres", "R"]
+  },
+  {
+    "title": "Frameworks & Tools",
+    "icon": "Settings",
+    "skills": ["React", "Node.js", "Next.js", "Flask", "OSINT"]
+  },
+  {
+    "title": "Developer Tools & Libraries",
+    "icon": "Wrench",
+    "skills": ["Git", "VS Code", "Kali Linux", "Burp Suite", "Metasploit", "Wireshark", "Cisco Packet Tracer"]
+  },
+  {
+    "title": "Libraries & Automation",
+    "icon": "BookOpen",
+    "skills": ["pandas", "NumPy", "Matplotlib", "Selenium", "Beautiful Soup"]
+  }
+] 

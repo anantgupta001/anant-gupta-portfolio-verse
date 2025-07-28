@@ -1,161 +1,145 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, Users, TrendingUp, Zap, Brain } from 'lucide-react';
+import projectsData from '../data/projects.json';
+import { Github, ExternalLink, Users, TrendingUp, Brain, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+
+const iconMap = { Users, TrendingUp, Brain, Zap };
 
 export const ProjectsSection = () => {
-  const projects = [
-    {
-      title: 'FoodApe',
-      description: 'Led a 5-member team to build a food-ordering app for 30,000 students. Built scalable architecture, boosting performance by 30%. Developed APIs with 20% faster response and 40% higher cache hits.',
-      technologies: ['Flutter', 'Express', 'Node.js', 'MongoDB', 'TensorFlow.js'],
-      icon: Users,
-      stats: [
-        { label: 'Users', value: '30K+' },
-        { label: 'Performance', value: '+30%' },
-        { label: 'Cache Hits', value: '+40%' }
-      ],
-      github: 'https://github.com/anantgupta001',
-      demo: null,
-      color: 'from-orange-500/20 to-red-500/20'
-    },
-    {
-      title: 'StayHub',
-      description: 'Full Stack Web App with secure authentication using cookies and salting. Integrated Mapbox API for dynamic location services. Optimized API response times and cache performance.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Mapbox API'],
-      icon: TrendingUp,
-      stats: [
-        { label: 'Auth', value: 'Secure' },
-        { label: 'API', value: 'Optimized' },
-        { label: 'Maps', value: 'Dynamic' }
-      ],
-      github: 'https://github.com/anantgupta001',
-      demo: null,
-      color: 'from-blue-500/20 to-cyan-500/20'
-    },
-    {
-      title: 'Age Detection Using CNN',
-      description: 'Built ensemble CNN model with 80% accuracy. Trained on UTK and Facial Age datasets. Used softmax for precise age classification.',
-      technologies: ['Python', 'TensorFlow', 'CNN', 'Computer Vision'],
-      icon: Brain,
-      stats: [
-        { label: 'Accuracy', value: '80%' },
-        { label: 'Model', value: 'CNN' },
-        { label: 'Datasets', value: '2+' }
-      ],
-      github: 'https://github.com/anantgupta001',
-      demo: null,
-      color: 'from-purple-500/20 to-pink-500/20'
-    },
-    {
-      title: 'MAYHEM',
-      description: 'Mental health journaling with AI pattern analysis. Beautiful data visualizations via graphs. Trend dashboard to track emotional health.',
-      technologies: ['React', 'D3.js', 'Python', 'AI/ML', 'Data Visualization'],
-      icon: Zap,
-      stats: [
-        { label: 'AI', value: 'Powered' },
-        { label: 'Insights', value: 'Deep' },
-        { label: 'Health', value: 'Mental' }
-      ],
-      github: 'https://github.com/anantgupta001',
-      demo: null,
-      color: 'from-green-500/20 to-emerald-500/20'
-    }
-  ];
+  // Map icon string to component, fallback to Users if not found
+  const projects = Array.isArray(projectsData) ? projectsData.map(project => ({
+    ...project,
+    icon: iconMap[project.icon] || Users,
+  })) : [];
+
+  if (!projects.length) {
+    return (
+      <section className="py-16 px-4 md:px-12 mx-auto flex flex-col items-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Featured Projects</h2>
+        <p className="text-lg text-gray-500 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">No projects found. Please check your projects.json file.</p>
+      </section>
+    );
+  }
+
+  // Card sizes and gap
+  const sideW = 280, centerW = 400, gap = 32;
+
+  // Use a simple currentIdx state
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const prevIdx = (currentIdx - 1 + projects.length) % projects.length;
+  const nextIdx = (currentIdx + 1) % projects.length;
+
+  const goTo = (idx) => setCurrentIdx((idx + projects.length) % projects.length);
+  const prev = () => goTo(currentIdx - 1);
+  const next = () => goTo(currentIdx + 1);
 
   return (
-    <section id="projects" className="py-20 px-6 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Featured Projects</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Showcasing impactful solutions that demonstrate technical expertise and problem-solving skills
-          </p>
+    <section
+      className="py-16 px-4 md:px-12 mx-auto flex flex-col items-center bg-background-light dark:bg-background-dark"
+    >
+      <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Featured Projects</h2>
+      <p className="section-subheading text-lg text-gray-500 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
+        A showcase of my recent work in cybersecurity analysis, IoT development, and full-stack applications, demonstrating practical applications of cutting-edge technologies.
+      </p>
+      <div className="relative w-full h-[340px] md:h-[420px] flex items-center justify-center overflow-x-hidden overflow-y-hidden" style={{ maxHeight: 420 }}>
+        {/* Side arrow buttons */}
+        <button
+          aria-label="Previous project"
+          onClick={prev}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-[#273449] border border-gray-300 dark:border-slate-700 rounded-full p-3 shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition z-20"
+        >
+          <ChevronLeft className="h-7 w-7 text-blue-600 dark:text-purple-400" />
+        </button>
+        <div className="flex flex-row items-center justify-center w-full h-full">
+          <div className="w-[600px] h-[320px] md:h-[380px] shadow-2xl transition-all duration-500 flex items-center justify-center">
+            {renderProjectCard(projects[currentIdx], true)}
+          </div>
         </div>
+        <button
+          aria-label="Next project"
+          onClick={next}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-[#273449] border border-gray-300 dark:border-slate-700 rounded-full p-3 shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition z-20"
+        >
+          <ChevronRight className="h-7 w-7 text-blue-600 dark:text-purple-400" />
+        </button>
+      </div>
+    </section>
+  );
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.title}
-              className="glass border-border/50 hover:glow transition-all duration-300 group overflow-hidden animate-slideInUp"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${project.color} group-hover:scale-110 transition-transform duration-300`}>
-                      <project.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
-                  </div>
-                  
-                  <div className="flex gap-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      asChild
-                      className="hover:bg-primary/10"
-                    >
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1"
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    </Button>
-                    {project.demo && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        asChild
-                        className="hover:bg-primary/10"
-                      >
-                        <a 
-                          href={project.demo} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Stats */}
-                <div className="flex gap-4 mb-6">
-                  {project.stats.map((stat) => (
-                    <div key={stat.label} className="text-center">
-                      <div className="text-lg font-bold text-primary">{stat.value}</div>
-                      <div className="text-xs text-muted-foreground">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
+  // Helper to render a project card
+  function renderProjectCard(project, isCenter) {
+    return (
+      <div className={`rounded-2xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark flex flex-col w-full h-full p-8 pb-20 relative ${isCenter ? 'shadow-2xl' : 'shadow-xl'}`}>
+        {isCenter && (project.github || project.demo) && (
+          <div className="absolute left-4 bottom-4 flex gap-3">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-blue-600 transition"
+                title="GitHub"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl text-green-600 hover:text-green-700 transition"
+                title="Live Demo"
+              >
+                <ExternalLink className="h-6 w-6" />
+              </a>
+            )}
+          </div>
+        )}
+        {isCenter ? (
+          <div className="flex flex-col items-center mb-2">
+            <div className={`p-2 rounded-2xl bg-gradient-to-r ${project.color} shadow-md mb-2`}>
+              {project.icon && React.createElement(project.icon, { className: 'h-14 w-14 text-[color:var(--accent)]' })}
+            </div>
+            <h3 className="text-2xl font-bold text-[color:var(--accent)] leading-tight mb-2 text-center">{project.title}</h3>
+          </div>
+        ) : (
+          <div className="flex items-center gap-3 mb-1">
+            <div className={`p-1 rounded-xl bg-gradient-to-r ${project.color} shadow-md`}>
+              {project.icon && React.createElement(project.icon, { className: 'h-8 w-8 text-[color:var(--accent)]' })}
+            </div>
+            <h3 className="text-lg font-bold text-[color:var(--accent)] leading-tight mb-1">{project.title}</h3>
+          </div>
+        )}
+        <p className={`text-gray-700 dark:text-gray-200 font-sans mt-1 mb-1 text-xs flex-1 ${isCenter ? '' : 'truncate'}`}>{project.description}</p>
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-1 mb-1">
+          {project.technologies && (
+            isCenter
+              ? project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-[color:var(--accent)] rounded-full border border-blue-200 dark:border-blue-800"
+                  >
+                    {tech}
+                  </span>
+                ))
+              : <>
+                  {project.technologies.slice(0, 2).map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
+                      className="px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-[color:var(--accent)] rounded-full border border-blue-200 dark:border-blue-800"
                     >
                       {tech}
                     </span>
                   ))}
-                </div>
-              </div>
-            </Card>
-          ))}
+                  {project.technologies.length > 2 && (
+                    <span className="px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-[color:var(--accent)] rounded-full border border-blue-200 dark:border-blue-800">...</span>
+                  )}
+                </>
+          )}
         </div>
+        {/* Links (removed, now in top right) */}
       </div>
-    </section>
-  );
+    );
+  }
 };

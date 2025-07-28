@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Frontend Developer",
+    "organization": "Acme Corp",
+    "date": "2022 - Present",
+    "description": "Building beautiful, performant UIs with React and Tailwind CSS.",
+    "icon": "Code"
+  },
+  {
+    "title": "Intern",
+    "organization": "Startup Inc.",
+    "date": "Summer 2021",
+    "description": "Worked on backend APIs and learned agile teamwork.",
+    "icon": "Briefcase"
+  }
+] 

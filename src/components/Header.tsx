@@ -1,101 +1,47 @@
-import { Download, Github, Linkedin, Sun } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 export const Header = () => {
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/resume-anant-gupta.pdf';
-    link.download = 'Anant_Gupta_Resume.pdf';
-    link.click();
-  };
+  const [scrolled, setScrolled] = useState(false);
+  const navItems = [
+    { label: 'About', id: 'about-section' },
+    { label: 'Experience', id: 'experience-section' },
+    { label: 'Projects', id: 'projects-section' },
+    { label: 'Skills', id: 'skills-section' },
+    { label: 'Education', id: 'education-section' },
+    { label: 'Contact', id: 'contact-section' },
+  ];
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Contact', id: 'contact' },
-  ];
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/90 border-b border-border/20">
-      <div className="container mx-auto px-6 lg:px-12 py-4">
-        <div className="flex items-center justify-between">
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-background-light dark:bg-background-dark ${scrolled ? 'shadow-md' : ''}`}>
+      <div className="container mx-auto px-4 md:px-8 py-2 flex items-center justify-end">
+        {/* Navigation links and theme toggle on the right */}
+        <div className="flex items-center gap-4 justify-end flex-1">
+          <nav className="hidden md:flex items-center gap-3 justify-end">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+                className="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-1 py-1 rounded-lg"
               >
                 {item.label}
               </button>
             ))}
           </nav>
-
-          {/* Mobile menu placeholder */}
-          <div className="md:hidden">
-            <span className="text-xl font-bold text-primary">AG</span>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              className="w-8 h-8 hover:text-primary transition-colors duration-300"
-            >
-              <a 
-                href="https://github.com/anantgupta001" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-            </Button>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              className="w-8 h-8 hover:text-primary transition-colors duration-300"
-            >
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              asChild
-              className="w-8 h-8 hover:text-primary transition-colors duration-300"
-            >
-              <a href="mailto:anantagarwal4946@gmail.com">
-                <Download className="h-4 w-4" />
-              </a>
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="w-8 h-8 hover:text-primary transition-colors duration-300"
-            >
-              <Sun className="h-4 w-4" />
-            </Button>
-          </div>
+          <ThemeToggle />
         </div>
       </div>
     </header>
