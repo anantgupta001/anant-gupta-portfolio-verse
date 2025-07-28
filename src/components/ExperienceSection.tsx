@@ -42,7 +42,7 @@ export const ExperienceSection = () => {
         />
         <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Professional Experience</h2>
         <p className="section-subheading text-lg text-gray-400 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-          My journey through cybersecurity analysis, full-stack development, and technical leadership in various projects and organizations.
+          Background in open source contributions, full-stack development, AI/ML integration, and technical leadership across a range of real-world projects and organizations.
         </p>
         <div className="relative max-w-6xl mx-auto flex flex-col gap-24 z-10">
           {experiences.map((exp, idx) => {

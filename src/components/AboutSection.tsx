@@ -6,7 +6,7 @@ export const AboutSection = () => (
   >
     <h2 className="section-heading text-3xl md:text-4xl font-bold mb-4 text-center text-heading-light dark:text-heading-dark">About Me</h2>
     <p className="section-subheading text-lg md:text-xl text-text-light dark:text-text-dark font-sans mb-8 text-center max-w-3xl mx-auto">
-      I'm a passionate full-stack developer and cybersecurity enthusiast, currently pursuing B.Tech in Computer Science at VIT-AP. I love building scalable web apps, breaking things ethically, and leading impactful tech projects that solve real problems.
+      Full-stack developer currently pursuing B.Tech in Computer Science at VIT-AP, with a focus on building scalable applications and leading impactful technology projects.
     </p>
     <div className="grid md:grid-cols-4 gap-8">
       <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-lg p-6 flex flex-col items-start min-h-[260px] z-10 border border-border-light dark:border-border-dark transition-transform duration-200 hover:scale-105 hover:shadow-2xl">

@@ -91,7 +91,7 @@ export const ContactSection = () => {
         <div className="text-center mb-16">
           <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Let's Connect</h2>
           <p className="section-subheading text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to discuss opportunities, collaborate on projects, or just have a tech chat? I'd love to hear from you!
+            Open to collaborations, internships, and innovative opportunities — feel free to reach out via GitHub, LinkedIn, or email.
           </p>
         </div>
 

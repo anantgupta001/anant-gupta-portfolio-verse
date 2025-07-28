@@ -38,7 +38,7 @@ export const ProjectsSection = () => {
     >
       <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Featured Projects</h2>
       <p className="section-subheading text-lg text-gray-500 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-        A showcase of my recent work in cybersecurity analysis, IoT development, and full-stack applications, demonstrating practical applications of cutting-edge technologies.
+        A curated collection of work in open source, AI/ML, and full-stack applications — demonstrating practical implementations of cutting-edge technologies.
       </p>
       <div className="relative w-full h-[340px] md:h-[420px] flex items-center justify-center overflow-x-hidden overflow-y-hidden" style={{ maxHeight: 420 }}>
         {/* Side arrow buttons */}

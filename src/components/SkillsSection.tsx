@@ -14,6 +14,9 @@ export const SkillsSection = () => {
       className="py-16 px-4 md:px-12 flex flex-col items-center bg-background-light dark:bg-background-dark"
     >
       <h2 className="section-heading text-3xl md:text-4xl font-bold mb-8 text-heading-light dark:text-heading-dark">Technical Skills</h2>
+      <p className="section-subheading text-lg text-gray-500 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
+        A comprehensive overview of my technical expertise spanning programming languages, frameworks, and development environments, demonstrated through real-world projects and contributions.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
         {skillCategories.map((cat, idx) => {
           const { elementRef, isVisible } = useScrollAnimation(0.2);
