@@ -1,4 +1,4 @@
-import { Shield, Code2, Users, Globe, GraduationCap } from 'lucide-react';
+import { Shield, Code2, Users, Globe, Brain, GraduationCap } from 'lucide-react';
 
 export const AboutSection = () => (
   <section
@@ -35,11 +35,11 @@ export const AboutSection = () => (
       </div>
       <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-lg p-6 flex flex-col items-start min-h-[260px] z-10 border border-border-light dark:border-border-dark transition-transform duration-200 hover:scale-105 hover:shadow-2xl">
         <div className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-900 mb-4">
-          <GraduationCap className="h-7 w-7 text-yellow-600 dark:text-yellow-400" />
+          <Brain className="h-7 w-7 text-yellow-600 dark:text-yellow-400" />
         </div>
-        <h3 className="text-lg font-bold mb-2 text-[color:var(--accent)]">Education</h3>
-        <p className="text-gray-700 dark:text-gray-200 font-sans mb-2">Pursuing B.Tech in Computer Science and Engineering from VIT-AP University (2022–2026) with a CGPA of 8.46.</p>
-        <p className="text-gray-700 dark:text-gray-200 font-sans">Focused on systems, AI/ML, and scalable software design through real-world, project-driven learning.</p>
+        <h3 className="text-lg font-bold mb-2 text-[color:var(--accent)]">AI/ML</h3>
+        <p className="text-gray-700 dark:text-gray-200 font-sans mb-2">Developed an Age Detection Model, a CNN-based ensemble system designed to predict age from facial images with high accuracy.</p>
+        <p className="text-gray-700 dark:text-gray-200 font-sans">Achieved 80% prediction accuracy by training on the UTKFace and Facial Age datasets for 60 epochs, using softmax activation for multi-class classification and optimized model architecture for performance and generalization.</p>
       </div>
     </div>
   </section>
