@@ -55,6 +55,12 @@ export const EducationSection = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 flex-shrink-0">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 dark:text-blue-400" />
                 </div>
+                <img
+                  src={(edu as any).logo || '/avatar.png'}
+                  alt={`${edu.organization} logo`}
+                  loading="lazy"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover border border-border-light dark:border-border-dark"
+                />
                 <div className="flex-1 min-w-0">
                   <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-[color:var(--accent)]">{edu.title}</h3>
                   <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-1">{edu.organization}</div>

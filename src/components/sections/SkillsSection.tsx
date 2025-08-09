@@ -34,6 +34,12 @@ export const SkillsSection = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 flex-shrink-0">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 dark:text-blue-400" />
                 </div>
+                <img
+                  src={'/avatar.png'}
+                  alt={`${category.title} logo`}
+                  loading="lazy"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-md object-cover border border-border-light dark:border-border-dark"
+                />
                 <div className="flex-1 min-w-0">
                   <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 text-heading-light dark:text-heading-dark">{category.title}</h3>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
